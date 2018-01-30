@@ -64,8 +64,8 @@ var commands = [
     {name: "!twitch", func: twitch.channelData},
     {name: "!memepic", func: memepics.searchImage},
     {name: "!addmeme", func: memepics.addMeme},
-    // {name: "!yt", func: youtube.ytSearch},
-    // {name: "!next", func: youtube.next},
+    {name: "!yt", func: youtube.ytSearch},
+    {name: "!next", func: youtube.next},
     // {name: "!lolrank", func: league.rank}
     // {name: "!kps", func: kps.addPlayer}
 
