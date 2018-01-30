@@ -6,6 +6,7 @@ var x = 0;
 
 function videoSearch(client, message, term) {
     YTSearch({key: API_KEY, term: term}, (videos) => {
+        console.log(videos);
         lastSearch = videos;
         x = 0;
         message.channel.send(`https://www.youtube.com/watch?v=${videos[0].id.videoId}`);
@@ -13,8 +14,8 @@ function videoSearch(client, message, term) {
 }
 
 function next(client, message) {
+    x++;
     if (x < lastSearch.length) {
-        x++
         message.channel.send(`https://www.youtube.com/watch?v=${lastSearch[x].id.videoId}`);
     }
     else {
