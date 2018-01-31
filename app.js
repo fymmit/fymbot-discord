@@ -1,4 +1,3 @@
-//#region requires
 var fs = require('fs');
 var Discord = require('discord.js');
 var think = require('./functions/think.js');
@@ -13,34 +12,22 @@ var twitch = require('./functions/twitchStreamInfo.js');
 var memepics = require('./functions/memepictures.js');
 var kps = require('./functions/kps.js');
 var youtube = require('./functions/youtube.js');
-// var server = require('./server.js');
 var league = require('./functions/league.js');
-//#endregion
+require('dotenv').config();
 const client = new Discord.Client();
-fs.readFile('tokens.json', 'utf8', function callback(err, data) {
-    if (err) {
-        console.log(err);
-    }
-    else {
-        var parseddata = JSON.parse(data);
-        var discordtoken = parseddata.discordtoken;
-        console.log("tokens.json data successfully loaded.");
-        client.login(discordtoken);
-    }
-});
+
+client.login(process.env.DISCORD_API_KEY);
 
 client.on('ready', () => {
     console.log('I am ready!');
     users.loadUserDataFromFile();
     memepics.loadImageData();
-    // server.start();
 });
 client.on('message', msg => {
     const guildTag = msg.channel.type === 'text' ? `[${msg.guild.name}]` : '[DM]';
     const channelTag = msg.channel.type === 'text' ? `[#${msg.channel.name}]` : '';
     console.log(`${guildTag}${channelTag} ${msg.author.username}#${msg.author.discriminator}: ${msg.content}`);
     messagehandler.handle(client, msg, commands);
-    // sheets.trackusers(client, msg);
 });
 client.on('presenceUpdate', (oldMember, newMember) => {
     steam.fakeOnlineCheck(newMember);

@@ -1,5 +1,6 @@
 const YTSearch = require('youtube-api-search');
-const API_KEY = 'AIzaSyBw0xLneR_TzZn-WOGHgf04XpW6cVd75ww';
+require('dotenv').config();
+const API_KEY = process.env.YOUTUBE_API_KEY;
 
 var lastSearch = [];
 var x = 0;

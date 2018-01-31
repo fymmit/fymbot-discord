@@ -1,13 +1,15 @@
 module.exports = {
     rank: searchRankBySummonerName
 }
+require('dotenv').config();
+const API_KEY = process.env.LOL_API_KEY;
 const request = require('request');
 const Discord = require('discord.js');
 
 function searchRankBySummonerName(client, message, searchTerm) {
     var options = {
         headers: {
-            "X-Riot-Token": "RGAPI-9d2334c4-686b-4ea1-9c02-8835c0e2571e"
+            "X-Riot-Token": API_KEY
         }
     }
     request(`https://euw1.api.riotgames.com/lol/summoner/v3/summoners/by-name/${searchTerm}`, options, (err, res, body) => {
