@@ -17,6 +17,9 @@ function videoSearch(client, message, term) {
 }
 
 function next(client, message) {
+    if (lastSearch.length === 0) {
+        return;
+    }
     x = (x + 1 < lastSearch.length) ? x + 1 : 0;
     message.channel.send(`https://www.youtube.com/watch?v=${lastSearch[x].id.videoId}`);
 }
