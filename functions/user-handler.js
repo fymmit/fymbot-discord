@@ -30,7 +30,7 @@ function loadUserDataFromFile() {
 function getPoints(username, callback) {
     var points = 0;
     for (var i = 0; i < users.usertable.length; i++) {
-        if (users.usertable.name === username) {
+        if (users.usertable[i].name === username) {
             points = users.usertable[i].points;
         }
     }
