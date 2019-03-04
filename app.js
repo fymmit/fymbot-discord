@@ -9,10 +9,10 @@ var points = require('./functions/points-handler.js');
 var timer = require('./functions/timer.js');
 var steam = require('./functions/steam.js');
 var twitch = require('./functions/twitchStreamInfo.js');
-var memepics = require('./functions/memepictures.js');
+var memepics = require('./functions/memepics2.js');
 var kps = require('./functions/kps.js');
 var youtube = require('./functions/youtube.js');
-var league = require('./functions/league.js');
+// var league = require('./functions/league.js');
 require('dotenv').config();
 const client = new Discord.Client();
 
@@ -49,11 +49,11 @@ var commands = [
     // {name: "!givepoints", func: users.givepoints},
     {name: "!fymer", func: timer.timer},
     {name: "!twitch", func: twitch.channelData},
-    {name: "!memepic", func: memepics.searchImage},
-    {name: "!addmeme", func: memepics.addMeme},
+    {name: "!memepic", func: memepics.meme},
+    // {name: "!addmeme", func: memepics.addMeme},
     {name: "!yt", func: youtube.ytSearch},
     {name: "!next", func: youtube.next},
-    {name: "!lolrank", func: league.rank}
+    // {name: "!lolrank", func: league.rank}
     // {name: "!kps", func: kps.addPlayer}
 
 ]
