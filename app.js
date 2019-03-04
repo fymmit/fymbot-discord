@@ -21,7 +21,6 @@ client.login(process.env.DISCORD_API_KEY);
 client.on('ready', () => {
     console.log('I am ready!');
     users.loadUserDataFromFile();
-    memepics.loadImageData();
 });
 client.on('message', msg => {
     const guildTag = msg.channel.type === 'text' ? `[${msg.guild.name}]` : '[DM]';
