@@ -6,9 +6,9 @@ function meme(client, message) {
     request.get(`${url}images`, (err, res, body) => {
         if (!err) {
             let images = JSON.parse(body);
-            let random = Math.floor((Math.random() * images.length - 1));
+            let random = Math.floor((Math.random() * images.length));
             let randomImage = images[random]
-            message.channel.send(`${url}${randomImage}`);
+            message.channel.send(`${url}${randomImage.name}`);
         }
     })
 }
